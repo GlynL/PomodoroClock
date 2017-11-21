@@ -60,7 +60,11 @@ decrBtn.addEventListener('click', incDec);
 
 function incDec() {
     var timerVal = Number(timer.textContent);
-    if(this.id === "btnDecr") {        
+    if(this.id === "btnDecr") {   
+        // don't allow timer to go below zero
+        if(timerVal < 1.01){
+            return;
+        }
         timerVal -= 1;        
     }
     else {
