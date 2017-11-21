@@ -7,6 +7,10 @@ body {
     color: white;
 }
 
+button {
+    margin: 0;
+}
+
 .centered {
     margin: 0 auto;
 }
@@ -19,4 +23,70 @@ body {
     width: 300px;
     height: 300px;
     background-color: purple;
+    border-radius: 50%;
+    text-align: center;
 }
+
+
+#timer {
+    background-color: grey;
+    width: 25%;
+    padding: 14px;
+    display: inline-block;
+    font-size: 18px;
+}
+
+#timerNbtns {
+    margin-top: 15%;
+}
+
+#topBtns {
+    padding-top: 30px;
+}
+
+#btnStart {
+    -ms-transform: rotate(-31deg); /* IE 9 */
+    -webkit-transform: rotate(-31deg); /* Chrome, Safari, Opera */
+    transform: rotate(-40deg);
+    
+    border-radius: 40%;    
+    margin-right: 60px;
+}
+
+#btnStop {
+    -ms-transform: rotate(31deg); /* IE 9 */
+    -webkit-transform: rotate(31deg); /* Chrome, Safari, Opera */
+    transform: rotate(40deg);
+
+    border-radius: 40%;
+}
+
+.btnStd {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    /* text-decoration: none;  -- stops underline styling if you use links - not needed in this */
+    outline: none;
+    font-size: 16px;
+}
+
+#btnReset {
+    margin-top: 26.6%;
+    border-radius: 40%;
+}
+
+#btnIncr, #btnDecr {
+    padding: 15.6px 15px 14.6px 15px;
+}
+
+#btnIncr {
+    border-radius: 15% 0 0 15%;
+}
+
+#btnDecr {
+    border-radius: 0 15% 15% 0;
+}
+
+
+

@@ -11,13 +11,20 @@
     
     <h1 class='textCenter'>Pomodoro Clock</h1>
     <div class='centered' id='clock'>
-        <div class='textCenter' id='timer'>25</div>
+        <div id='topBtns'>
+            <button class='btnStd' id='btnStart'>Start</button>
+            <button class='btnStd' id='btnStop'>Stop</button>
+        </div>
+        
+        <div id='timerNbtns'>
+            <button class='btnStd' id='btnIncr'>+</button><!-- comments added to remove whitespace from inbetween inline elements
+            --><span class='textCenter' id='timer'>25</span><!-- 
+            --><button class='btnStd' id='btnDecr'>-</button>
+        </div>
+   
 
-        <button class='btnStd' id='btnStart'>Start</button>
-        <button class='btnStd' id='btnStop'>Stop</button>
         <button class='btnStd' id='btnReset'>Reset</button>
-        <button class='btnStd' id='btnIncr'>+</button>
-        <button class='btnStd' id='btnDecr'>-</button>
+        
     </div>
 
 
