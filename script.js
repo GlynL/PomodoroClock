@@ -72,6 +72,3 @@ function incDec() {
     }    
     timer.textContent = timerVal;
 }
-
-
-// look for : in loop and replace with . -- do opposite before setting textContent
