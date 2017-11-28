@@ -9,6 +9,7 @@ body {
     margin: 0;
 }
 
+
 h1 {
     display: inline-block;
     color: rgb(156, 125, 102); 
@@ -20,8 +21,59 @@ h1 {
     margin: 0 auto;
 }
 
+.timer {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    color: rgb(156, 125, 102);
+}
+
+    #timerNbtns {
+        position: relative;
+        right: 5%;
+    }
+
+    #break {
+        position: relative;
+        left: 5%;
+    }
+
+  
+
+    #btnIncr, #btnDecr {
+        padding: 17.5px 15px 17.5px 15px;
+        width: 20%;
+        position: relative;
+        display: inline-block;
+    }
+    
+    #btnIncr {
+        border-radius: 15% 0 0 15%;
+    }
+    
+    #btnDecr {
+        border-radius: 0 15% 15% 0;
+    }
+
+    .time {
+        background-color: rgb(201, 193, 193);
+        padding: 14px;
+        width: 46%;
+        display: inline-block;
+        font-size: 18px;
+        color: #9c7d66;     
+        box-shadow: inset 0 0 1px rgb(70, 68, 68), inset 0 0 5px #333;
+    }
+    
+    .timerType {
+        padding: 0;
+        margin: 0;  
+    }
+    
+
 #container {
     position: relative;
+    margin-top: 30px;
     width: 300px;
     height: 300px;
 }
@@ -44,20 +96,7 @@ h1 {
 }
 
 
-#timer {
-    background-color: rgb(201, 193, 193);
-    width: 25%;
-    padding: 14px;
-    display: inline-block;
-    font-size: 18px;
-    color: #9c7d66;     
-    box-shadow: inset 0 0 1px rgb(70, 68, 68), inset 0 0 5px #333;
-}
 
-#timerNbtns {
-    position: relative;
-    top: 40%;
-}
 
 #btnStart {
     -ms-transform: rotate(-31deg); /* IE 9 */
@@ -97,20 +136,6 @@ h1 {
     left: 33%;
 }
 
-#btnIncr, #btnDecr {
-    padding: 17.5px 15px 17.5px 15px;
-}
-
-#btnIncr {
-    border-radius: 15% 0 0 15%;
-    position: relative;
-}
-
-#btnDecr {
-    border-radius: 0 15% 15% 0;
-    position: relative;
-}
-
 .btnStd:hover {
     color: rgb(156, 125, 102); 
     background-color: rgb(201, 193, 193);
@@ -126,5 +151,34 @@ h1 {
     #container {
         height: 180px;
         width: 180px;
+    }
+  
+    
+
+
+    #btnStart, #btnStop, #btnReset {
+        padding: 5px 15px;
+        top: 10%;
+    }
+    
+    #btnReset {
+        top: 84%;
+        left: 30%;  
+    }
+  }
+
+  @media (max-width: 480px) {
+    #timerNbtns {
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        right: 0%;
+    }
+
+    #break {
+        margin: 10px auto;
+        display: block;
+        position: relative;
+        left: 0%;
     }
   }

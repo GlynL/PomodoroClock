@@ -10,18 +10,31 @@
 </head>
 <body>
     <h1>Pomodoro Clock</h1>
+    <div><!-- spacer as h1 is and below div are inline-block --></div>
+
+    <div class='timer' id='timerNbtns'>
+        <p class='timerType'>timer</p>
+        <button class='btnStd' id='btnIncr'>+</button><!-- comments added to remove whitespace from inbetween inline elements
+        --><span class='time' id='timer'>0.02</span><!-- 
+        --><button class='btnStd' id='btnDecr'>-</button>
+    </div>
+    
+    <div class='timer' id='break'>
+        <p class='timerType'>Break</p>
+        <button class='btnStd' id='btnIncr'>+</button><!-- comments added to remove whitespace from inbetween inline elements
+        --><span class='time' id='breakTime'>0.02</span><!-- 
+        --><button class='btnStd' id='btnDecr'>-</button>
+    </div>
+
+
+   
+
     <div class='centered' id='container'>
         <div id='clock'>
             <div id='fill'>
                 <div id='topBtns'>
                     <button class='btnStd' id='btnStart'>Start</button>
                     <button class='btnStd' id='btnStop'>Stop</button>
-                </div>
-                
-                <div id='timerNbtns'>
-                    <button class='btnStd' id='btnIncr'>+</button><!-- comments added to remove whitespace from inbetween inline elements
-                    --><span id='timer'>0.02</span><!-- 
-                    --><button class='btnStd' id='btnDecr'>-</button>
                 </div>
                 <button class='btnStd' id='btnReset'>Reset</button>        
             </div>
