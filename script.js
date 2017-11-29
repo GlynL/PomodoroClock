@@ -1,8 +1,12 @@
 var timer = document.querySelector('#timer');
 var isIntervalInProgress = false;
+var breakTime = document.querySelector('#breakTime');
+var timeDisplay = document.querySelector('#timeDisplay')
 var fill = document.querySelector('#fill');
 var fillingInProgress = false;
-
+var timerSwitch = true;
+var workTimer = 25;
+var breakTimer = 5;
 var intervalTime;
 var counter, ogTime, filledCounter;
 
@@ -18,21 +22,28 @@ function countdown(){
 }
 
 function intervalTimer(){
+    
     if(!fillingInProgress){
         counter = 0;
-        ogTime =Number(timer.textContent);
+        if(timerSwitch){
+            timer.textContent = workTimer;
+            ogTime = Number(timer.textContent);
+        }
+        else {
+            breakTime.textContent = breakTimer;
+            ogTime = Number(breakTime.textContent);
+        }
+        
         filledCounter = ogTime * 60;
     }
     fillingInProgress = true;
     intervalTime = setInterval(function(){
-        //get timer value and check if finished
-        timerVal = Number(timer.textContent);
-        if(timerVal === 0.00){
-            timer.textContent = "BUZZZ!";            
-            isIntervalInProgress = false;
-            clearInterval(intervalTime);
-            return;
-        } 
+        if(timerSwitch){
+            var timerVal = Number(timer.textContent);
+        }
+        else{
+            var timerVal = Number(breakTime.textContent);
+        }
 
         // filling of timer 
          counter++;
@@ -51,7 +62,24 @@ function intervalTimer(){
             timerVal = Math.floor(timerVal) + .59;
         }
         // adjust text to display new time
-        timer.textContent = timerVal;
+        if(timerSwitch){
+            timer.textContent = timerVal;
+        }
+        else{
+            breakTime.textContent = timerVal;
+        }
+        timeDisplay.textContent = timerVal;
+        
+        // check if finished
+        if(timerVal === 0.00){
+            timerSwitch = !timerSwitch;
+            fill.style.background = '#938E94';
+            isIntervalInProgress = false;
+            fillingInProgress = false;
+            clearInterval(intervalTime);
+            countdown();
+        } 
+
         }, 1000);
 }
     
@@ -71,10 +99,15 @@ stopBtn.addEventListener('click', function(){
 var resetBtn = document.querySelector('#btnReset');
 resetBtn.addEventListener('click', function(){
     timer.textContent = "25";
+    breakTime.textContent = "5";
     fill.style.background = '#938E94';
     clearInterval(intervalTime);
     isIntervalInProgress = false;
     fillingInProgress = false;
+    timerSwitch = true;
+    timeDisplay.textContent = "25";
+    breakTimer = 5;
+    workTimer = 25;
 });
 
 // increase/decrease timer
@@ -86,8 +119,14 @@ decrBtn.addEventListener('click', incDec);
 
 function incDec() {
     if(!isIntervalInProgress){
-        var timerVal = Number(timer.textContent);
-        if(this.id === "btnDecr") {   
+        if(this.id === 'breakIncr' || this.id === 'breakDecr'){
+            var timerVal = Number(breakTime.textContent);
+        }
+        else{
+            var timerVal = Number(timer.textContent);
+        }
+
+        if(this.className === 'btnStd decrBtn') {   
             // don't allow timer to go below zero
             if(timerVal < 1.01){
                 return;
@@ -96,9 +135,22 @@ function incDec() {
         }
         else {
             timerVal += 1;
-        }    
-        timer.textContent = timerVal;
+        }
+
+        if(this.id === 'breakIncr' || this.id === 'breakDecr'){
+            breakTime.textContent = timerVal;
+            breakTimer = timerVal;
+        }
+        else{
+            timer.textContent = timerVal;
+            workTimer = timerVal;
+        }
+
     }
 }
 
-// add the break timer
+var incrBreak = document.querySelector('#breakIncr');
+var decrBreak = document.querySelector('#breakDecr');
+
+incrBreak.addEventListener('click', incDec);
+decrBreak.addEventListener('click', incDec);
